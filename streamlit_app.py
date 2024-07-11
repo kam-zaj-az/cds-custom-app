@@ -55,5 +55,5 @@ def tab1():
         df1 = pd.read_excel(uploaded_file)
         st.write(df1)
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

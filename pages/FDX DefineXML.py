@@ -76,14 +76,6 @@ def main():
 
         with tab3:
             st.header("Codelists")
-            
-def strip_namespace(element):
-    if element.tag.startswith("{"):
-        element.tag = element.tag.split("}")[1]
-    element.tag = element.tag.replace('formedix.com}', '').replace('cdisc.org', '')
-    for child in element:
-        strip_namespace(child)
-    return element
 
 def xml_to_dict(element):
     # Initialize the dictionary with attributes
@@ -107,8 +99,7 @@ def xml_to_dict(element):
     
     return result
 
-def xml_file_to_json(tree):
-    root = tree
+def xml_file_to_json(root):
     xml_dict = {root.tag: xml_to_dict(root)}
     json_str = json.dumps(xml_dict, ensure_ascii=False, indent=4)
     return json_str

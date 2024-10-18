@@ -32,7 +32,7 @@ def main():
             mime="application/json"
         )
 
-        tab1, tab2, tab3 = st.tabs(["Datasets", "Variables", "COdelists"])
+        tab1, tab2, tab3 = st.tabs(["Datasets", "Variables", "Codelists"])
 
         with tab1:
             st.header("Datasets")
@@ -45,7 +45,7 @@ def main():
             st.header("Variables")
 
         with tab3:
-            st.header("COdelists")
+            st.header("Codelists")
 
 
 def xml_to_dict(element):

@@ -62,8 +62,9 @@ def main():
             
 def strip_namespace(element):
     if element.tag.startswith("{"):
-        print(element.tag)
         element.tag = element.tag.split("}")[1]
+        if element.tag.startswith("{"):
+            element.tag = element.tag.split("}")[1]
     for child in element:
         strip_namespace(child)
     return element

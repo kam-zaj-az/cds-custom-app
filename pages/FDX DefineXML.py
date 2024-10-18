@@ -39,9 +39,9 @@ def main():
         with tab1:
             st.header("Datasets")
 
-            df = pd.DataFrame.from_dict(pd.json_normalize(json_content), orient='columns')
+            #df = pd.DataFrame.from_dict(pd.json_normalize(json_content), orient='columns')
 
-            st.dataframe(df)
+            #st.dataframe(df)
 
         with tab2:
             st.header("Variables")

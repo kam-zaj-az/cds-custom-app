@@ -47,7 +47,7 @@ def main():
         with tab1:
             st.header("Datasets")
 
-            df = pd.DataFrame.from_dict(data, orient='columns')
+            df = pd.DataFrame.from_dict(json_content, orient='columns')
 
             st.dataframe(df)
 

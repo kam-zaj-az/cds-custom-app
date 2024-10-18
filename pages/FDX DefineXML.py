@@ -20,10 +20,11 @@ def main():
 
         tree = etree.fromstring(content, parser)
         etree.cleanup_namespaces(tree)
+        stripped_tree = strip_namespace(tree)
 
         #st.write(tree)
 
-        json_str = xml_file_to_json(tree)
+        json_str = xml_file_to_json(stripped_tree)
         json_content = json.loads(json_str)
 
         st.download_button(
@@ -48,7 +49,7 @@ def main():
         with tab1:
             st.header("Datasets")
 
-            df = pd.DataFrame.from_dict(json_content, orient='columns')
+            df = pd.DataFrame.from_dict(json_content)
 
             st.dataframe(df)
 
@@ -59,7 +60,16 @@ def main():
         with tab3:
             st.header("Codelists")
             
+def strip_namespace(element):
+    if element.tag.startswith("{"):
+        element.tag = element.tag.split("}")[1]
+    for child in element:
+        strip_namespace(child)
+    return element
 
+
+stripped_root = strip_namespace(root)
+print(etree.tostring(stripped_root, encoding="unicode"))
 
 def xml_to_dict(element):
     # Initialize the dictionary with attributes

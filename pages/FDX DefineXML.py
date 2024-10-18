@@ -15,8 +15,10 @@ def main():
         content = uploaded_file.read()
 
         #st.write(content)
+        
+        parser = etree.XMLParser(ns_clean=True)
 
-        tree = etree.fromstring(content)
+        tree = etree.fromstring(content, parser)
 
         #st.write(tree)
 

@@ -37,10 +37,11 @@ def main():
             st.header("Global variables")
             data = {}
             data['FileOID'] = json_content[0][0]
+            st.write(data)
 
-            df = pd.DataFrame.from_dict(data)
+            #df = pd.DataFrame.from_dict(data)
 
-            st.dataframe(df)
+            #st.dataframe(df)
 
         with tab1:
             st.header("Datasets")

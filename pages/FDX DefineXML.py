@@ -30,6 +30,18 @@ def main():
             mime="application/json"
         )
 
+        tab1, tab2, tab3 = st.tabs(["Datasets", "Variables", "COdelists"])
+
+        with tab1:
+            st.header("Datasets")
+
+        with tab2:
+            st.header("Variables")
+
+        with tab3:
+            st.header("COdelists")
+
+
 def xml_to_dict(element):
     # Initialize the dictionary with attributes
     result = {k: v for k, v in element.attrib.items()}

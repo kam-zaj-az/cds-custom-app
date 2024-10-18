@@ -24,6 +24,8 @@ def main():
 
         json_content = xml_file_to_json(tree)
 
+        json_c
+
         
 
 
@@ -34,7 +36,16 @@ def main():
             mime="application/json"
         )
 
-        tab1, tab2, tab3 = st.tabs(["Datasets", "Variables", "Codelists"])
+        tab_main, tab1, tab2, tab3 = st.tabs(["Study", "Datasets", "Variables", "Codelists"])
+
+        with tab_main:
+            st.header("Global variables")
+            data = {}
+            data['FileOID'] = json_content["{http://www.cdisc.org/ns/odm/v1.3}ODM"]["FileOID"]
+
+            df = pd.DataFrame.from_dict(data)
+
+            st.dataframe(df)
 
         with tab1:
             st.header("Datasets")

@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
+import xml.etree.ElementTree as ET
 import openpyxl
 
 def main():
-    st.title("RDS correction app")
+    st.title("Formedix Define-XML 2.0 reader")
 
     uploaded_file = st.file_uploader("Upload Files", type=['xml'], key=11)
 

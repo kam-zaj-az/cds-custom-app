@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import xml.etree.ElementTree as ET
+from lxml import etree
 import json
 from io import BytesIO
 
@@ -13,6 +13,12 @@ def main():
         st.write("File uploaded successfully!")
 
         content = uploaded_file.read()
+
+        st.write(content)
+
+        tree = etree.parse(uploaded_file)
+
+        st.write(tree)
 
         st.download_button(
             label="Download JSON",

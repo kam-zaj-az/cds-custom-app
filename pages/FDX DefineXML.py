@@ -53,7 +53,7 @@ def xml_to_dict(element):
     return result
 
 def xml_file_to_json_bytes(tree):
-    root = tree.getroot()
+    root = tree
     xml_dict = {root.tag: xml_to_dict(root)}
     json_str = json.dumps(xml_dict, ensure_ascii=False, indent=4)
     return BytesIO(json_str.encode('utf-8'))

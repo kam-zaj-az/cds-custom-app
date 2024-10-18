@@ -22,7 +22,7 @@ def main():
 
         #st.write(tree)
 
-        json_content = xml_file_to_json_bytes(tree)
+        json_content = xml_file_to_json(tree)
 
         
 
@@ -74,11 +74,11 @@ def xml_to_dict(element):
     
     return result
 
-def xml_file_to_json_bytes(tree):
+def xml_file_to_json(tree):
     root = tree
     xml_dict = {root.tag: xml_to_dict(root)}
     json_str = json.dumps(xml_dict, ensure_ascii=False, indent=4)
-    return BytesIO(json_str.encode('utf-8'))
+    return json_str
 
 if __name__ == "__main__":
     main()

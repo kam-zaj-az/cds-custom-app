@@ -27,7 +27,7 @@ def main():
 
         st.download_button(
             label="Download JSON",
-            data=json_content,
+            data=json_str,
             file_name="output.json",
             mime="application/json"
         )

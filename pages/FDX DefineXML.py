@@ -37,7 +37,7 @@ def main():
         with tab_main:
             st.header("Global variables")
             data = {}
-            data['FileOID'] = json_content[0]
+            data['FileOID'] = json_content["{http://www.cdisc.org/ns/odm/v1.3}ODM"]["FileOID"]
             st.write(data)
 
             #df = pd.DataFrame.from_dict(data)

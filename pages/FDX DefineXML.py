@@ -16,7 +16,7 @@ def main():
 
         #st.write(content)
 
-        tree = etree.parse(content)
+        tree = etree.parse(StringIO(content))
 
         #st.write(tree)
 

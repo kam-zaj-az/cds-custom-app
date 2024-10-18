@@ -35,6 +35,10 @@ def main():
         with tab1:
             st.header("Datasets")
 
+            df = pd.DataFrame(json_content)
+
+            st.dataframe(df)
+
         with tab2:
             st.header("Variables")
 

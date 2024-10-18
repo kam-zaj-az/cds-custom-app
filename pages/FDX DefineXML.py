@@ -24,11 +24,6 @@ def main():
 
         json_content = xml_file_to_json(tree)
 
-        json_c
-
-        
-
-
         st.download_button(
             label="Download JSON",
             data=json_content,

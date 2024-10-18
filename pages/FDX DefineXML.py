@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import xmltodict
+from xmltodict import parse
 import json
 from io import BytesIO
 
@@ -13,8 +13,9 @@ def main():
 
     if uploaded_file is not None:
         st.write("File uploaded successfully!")
-        xml = uploaded_file.read()
-        file1_data = json.loads(json.dumps(xmltodict.parse(xml)))
+        file_content = uploaded_file.read()
+        xml = parse(file_content)
+        file1_data = json.loads(json.dumps(xml))
         st.write(file1_data)
 
         st.download_button(

@@ -63,7 +63,7 @@ def main():
 def strip_namespace(element):
     if element.tag.startswith("{"):
         element.tag = element.tag.split("}")[1]
-    element.tag = element.tag.replace("{http://www.formedix.com/ns/origin/2}", "").replace("{http://www.cdisc.org/ns/def/v2.0}", "")
+    element.tag = element.tag.replace('{http://www.formedix.com/ns/origin/2}', '').replace('{http://www.cdisc.org/ns/def/v2.0}', '')
     for child in element:
         strip_namespace(child)
     return element

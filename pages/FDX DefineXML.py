@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import xml.etree.ElementTree as ET
-import openpyxl
 
 def main():
     st.title("Formedix Define-XML 2.0 reader")
@@ -13,8 +12,8 @@ def main():
         df1 = xml_to_dataframe(uploaded_file)
         st.write(df1)
 
-        excel_file = 'output.xlsx'
-        save_to_excel(df1, excel_file)
+        # excel_file = 'output.xlsx'
+        # save_to_excel(df1, excel_file)
 
 def xml_to_dataframe(xml_file):
     tree = ET.parse(xml_file)
@@ -29,8 +28,8 @@ def xml_to_dataframe(xml_file):
             record.append(elem.text)
         all_records.append(record)
 
-    df = pd.DataFrame(all_records, columns=columns)
-    return df
+    #df = pd.DataFrame(all_records, columns=columns)
+    return all_records
 
 def save_to_excel(df, excel_file):
     df.to_excel(excel_file, index=False)

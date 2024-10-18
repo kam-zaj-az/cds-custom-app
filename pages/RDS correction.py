@@ -3,7 +3,7 @@ import pandas as pd
 import openpyxl
 
 def main():
-    st.title("Excel File Uploader and Viewer")
+    st.title("RDS correction app")
 
     uploaded_file = st.file_uploader("Upload Files", type=['xlsx', 'xls'], key=11)
     if uploaded_file is not None:

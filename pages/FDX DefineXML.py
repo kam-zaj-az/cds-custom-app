@@ -18,13 +18,30 @@ def main():
         
         parser = etree.XMLParser(ns_clean=True)
 
-        tree = etree.fromstring(content, parser)
-        etree.cleanup_namespaces(tree)
-        stripped_tree = strip_namespace(tree)
+        root = etree.fromstring(content, parser)
 
-        #st.write(tree)
+        # Iterate through all XML elements
+        for elem in root.getiterator():
+            # Skip comments and processing instructions,
+            # because they do not have names
+            if not (
+                isinstance(elem, etree._Comment)
+                or isinstance(elem, etree._ProcessingInstruction)
+            ):
+                # Remove a namespace URI in the element's name
+                elem.tag = etree.QName(elem).localname
 
-        json_str = xml_file_to_json(stripped_tree)
+                for attr_name in elem.attrib:
+                    local_attr_name = etree.QName(attr_name).localname
+                    if attr_name != local_attr_name:
+                        attr_value = elem.attrib[attr_name]
+                        del elem.attrib[attr_name]
+                        elem.attrib[local_attr_name] = attr_value
+
+        # Remove unused namespace declarations
+        etree.cleanup_namespaces(root)
+
+        json_str = xml_file_to_json(root)
         json_content = json.loads(json_str)
 
         st.download_button(

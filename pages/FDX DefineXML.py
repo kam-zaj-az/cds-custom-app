@@ -19,6 +19,7 @@ def main():
         parser = etree.XMLParser(ns_clean=True)
 
         tree = etree.fromstring(content, parser)
+        etree.cleanup_namespaces(tree)
 
         #st.write(tree)
 
@@ -57,7 +58,7 @@ def main():
 
         with tab3:
             st.header("Codelists")
-            st.write(json_content[0])
+            
 
 
 def xml_to_dict(element):

@@ -24,6 +24,8 @@ def main():
 
         json_content = xml_file_to_json_bytes(tree)
 
+        
+
 
         st.download_button(
             label="Download JSON",
@@ -43,9 +45,11 @@ def main():
 
         with tab2:
             st.header("Variables")
+            st.write(json_content)
 
         with tab3:
             st.header("Codelists")
+            st.write(json_content[0])
 
 
 def xml_to_dict(element):

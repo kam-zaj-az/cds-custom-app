@@ -67,10 +67,6 @@ def strip_namespace(element):
         strip_namespace(child)
     return element
 
-
-stripped_root = strip_namespace(root)
-print(etree.tostring(stripped_root, encoding="unicode"))
-
 def xml_to_dict(element):
     # Initialize the dictionary with attributes
     result = {k: v for k, v in element.attrib.items()}

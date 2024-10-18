@@ -14,11 +14,11 @@ def main():
 
         content = uploaded_file.read()
 
-        st.write(content)
+        #st.write(content)
 
         tree = etree.parse(content)
 
-        st.write(tree)
+        #st.write(tree)
 
         json_content = xml_file_to_json_bytes(tree)
 
